@@ -6,7 +6,8 @@ import java.util.Arrays;
 public class bubbleSort {
     public static void main(String[] args) {
         int[] arr = {4,3,2,1};
-        bubble(arr,arr.length-1,0);
+//        bubble(arr,arr.length-1,0);
+        bubbleSor(arr,arr.length);
         System.out.println(Arrays.toString(arr));
     }
     static void bubble(int[] arr, int r,int c){
@@ -24,5 +25,25 @@ public class bubbleSort {
         }else {
             bubble(arr,r-1,0);
         }
+    }
+    static void bubbleSor(int[] arr,int n){
+        if(n==1){
+            return ;
+        }
+        boolean swapped=true;
+        for(int i=0;i<n-1;i++){
+
+            if(arr[i]>arr[i+1]) {
+                //swap
+                int temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                swapped=true;
+            }
+        }
+        if(!swapped) {
+            return;
+        }
+        bubbleSor(arr,n-1);
     }
 }
